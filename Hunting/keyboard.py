@@ -1,7 +1,7 @@
 import time
 from pynput.keyboard import Key, Controller
 #import functions as fn
-import cv2
+#import cv2
 
 non_shiny1 = cv2.imread('referencemale.png')
 non_shiny2 = cv2.imread('referencefemale.png')
