@@ -1,39 +1,51 @@
 import time
 from pynput.keyboard import Key, Controller
+import pyautogui
 # import functions as fn
 # import cv2
 
 kb = Controller()
 
 def square():
-    kb.press('d')
-    time.sleep(0.5)
-    kb.press('s')
-    time.sleep(0.5)
-    kb.press('q')
-    time.sleep(0.5)
-    kb.press('z')
-    time.sleep(0.5)
+    
+    pyautogui.keyDown("d")
+    time.sleep(0.01)
+    pyautogui.keyUp("d")
+    
+    pyautogui.keyDown("s")
+    time.sleep(0.01)
+    pyautogui.keyUp("s")
+    
+    pyautogui.keyDown("q")
+    time.sleep(0.01)
+    pyautogui.keyUp("q")
+    
+    pyautogui.keyDown("z")
+    time.sleep(0.01)
+    pyautogui.keyUp("z")
+
 
 #Switching tabs and getting to Desmume
-with kb.pressed(Key.cmd_r):
-    kb.press(Key.tab)
-    kb.release(Key.tab)
-    
-time.sleep(2)
+# with pyautogui.press("alt"):
+#     kb.press(Key.tab)
+    # kb.release(Key.tab)
 
-with kb.pressed(Key.alt_l):
-    kb.press(Key.tab)
-    kb.release(Key.tab)
+# with kb.pressed(Key.alt_l):
+#     kb.press(Key.tab)
+#     kb.release(Key.tab)
 
-time.sleep(2)
+print("Debut du test dans 1 sec")
+time.sleep(1)
 
 cpt = 0
 
-with kb.pressed(Key.space):
-    while cpt < 1000000000:
-        square()
-        i += 1
+pyautogui.hotkey("alt", "tab")
 
-    time.sleep(1)
-    print("FIN")
+pyautogui.keyDown("space")
+while cpt < 10:
+    square()
+    cpt += 1
+    
+pyautogui.keyUp("space")
+time.sleep(1)
+print("FIN")
